@@ -1,0 +1,144 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+.container{
+    position: relative;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100vh;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+header .logo{
+    position:relative;
+    max-width: 160px;
+    height:75px;
+}
+header .logo img{
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    margin: 0 30px;
+}
+header .toggle{
+    position: relative;
+    font-size: 2em;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transform: translateX(-100px);
+}
+.container .slider{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500%;
+    height: 100%;
+    animation: animate 10s linear infinite;
+}
+.container .slider .slide{
+    position: relative;
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+.container .slider .slide .caption{
+    position: absolute;
+    bottom: 60px;
+    left: 60px;
+    right: 60px;
+    padding: 30px;
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    color: #fff;
+    transition: .5s;
+}
+.container .slider .slide .caption h2{
+    margin: 0 0 20px;
+    padding: 0;
+    font-size: 3em;
+    transition: .5s;
+}
+.container .slider .slide .caption p{
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    transition: .5s;
+}
+.container .slider .slide.slide4{
+    background: url(./assets/4.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.container .slider .slide.slide2{
+    background: url(./assets/2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.container .slider .slide.slide3{
+    background: url(./assets/3.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.container .slider .slide.slide1{
+    background: url(./assets/1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+@keyframes animate {
+    0%{
+        left:0;
+    }
+    20%{
+        left:0;
+    }
+    25%{
+        left:-100%;
+    }
+    45%{
+        left:-100%;
+    }
+    50%{
+        left:-200%;
+    }
+    70%{
+        left:-200%;
+    }
+    75%{
+        left:-300%;
+    }
+    95%{
+        left:-300%;
+    }
+    100%{
+        left:-400%;
+    }
+}
+@media (max-width:768px) {
+    .container .slider .slide .caption{
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        padding: 20px;
+    }
+    .container .slider .slide .caption h2{
+        margin: 0 0 10px;
+        font-size: 30px;
+    }
+    .container .slider .slide .caption p{
+        font-size: 16px;
+    }
+}
