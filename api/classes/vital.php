@@ -5,11 +5,11 @@
         Parent::__construct();
     }
 
-    // public function getAllPatients(){
-    //     $query = "SELECT * FROM patients";
-    //     $binder = null;
-    //    return $this->read($query,$binder);
-    // }
+    public function getAllVitals(){
+        $query = "SELECT * FROM vitals INNER JOIN `nurses` ON nurses.nurse_id = vitals.recorder_id INNER JOIN `patients` ON patients.pat_id = vitals.patient_id";
+        $binder = null;
+       return $this->read($query,$binder);
+    }
     // public function getAllPatients(){
     //     $query = "SELECT * FROM patients INNER JOIN `nurses` ON nurses.nurse_id = patients.recorder_id";
     //     $binder = null;

@@ -16,7 +16,7 @@
      return $this->read($query,$binder);
   }
     public function getAllStaffs (){
-      $query = "SELECT * FROM nurses";
+      $query = "SELECT * FROM nurses INNER JOIN `department` ON department.dept_id = nurses.dept_id";
       $binder = null;
      return $this->read($query,$binder);
   }

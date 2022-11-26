@@ -6,7 +6,7 @@
   font-family: sans-serif, "poppins";
 }
 body {
-  background: url(./assets/3.jpg);
+  background: url(assets/3.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -14,7 +14,7 @@ body {
   min-height: 100vh;
 }
 .bg{
-    background: url(./assets/do.jpg);
+    background: url(assets/do.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

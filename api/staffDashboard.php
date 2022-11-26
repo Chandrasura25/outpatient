@@ -2,17 +2,20 @@
 require "classes/nurses.php";
 require "classes/patients.php";
 require "classes/users.php";
+require "classes/vital.php";
 session_start();
 if(isset($_SESSION['nurse_details'])){
     $nurse_id = $_SESSION['nurse_details'][0]['nurse_id'];
     $nurse = new Nurses();
     $patient = new Patients();
     $user = new Users();
+    $vit = new Vitals();
     $insert = $nurse->getInfo($nurse_id);
     $nurses = $nurse->getAllNurses();
     $patients = $patient->getAllPatients();
     $docs = $nurse->getAllDocs();
     $getAllDepts = $user->getAllDept();
+    $vits = $vit->getAllVitals();
     $allDept =$getAllDepts['result'];
     $resp=[];
     $pat_id;
@@ -21,7 +24,7 @@ if(isset($_SESSION['nurse_details'])){
         $allnurses = $nurses['result'];
         $alldocs = $docs['result'];
         $allpatients = $patients['result'];
-        // print_r($alldocs);
+        $allVitals = $vits['result'];
     } else {
         $resp['success'] = false;
     }
@@ -117,8 +120,8 @@ else{
           <div class="cardBox">
             <div class="card">
                <div>
-                <div class="numbers">1,504</div>
-                <div class="cardName">Daily Views</div>
+                <div class="numbers">150</div>
+                <div class="cardName">Patients</div>
                </div> 
                <div class="iconBx">
                 <ion-icon name="eye-outline"></ion-icon>
@@ -126,8 +129,8 @@ else{
             </div>
             <div class="card">
                 <div>
-                 <div class="numbers">50</div>
-                 <div class="cardName">Sales</div>
+                 <div class="numbers">30</div>
+                 <div class="cardName">Awaiting Vitals</div>
                 </div> 
                 <div class="iconBx">
                  <ion-icon name="cart-outline"></ion-icon>
@@ -135,8 +138,8 @@ else{
              </div>
              <div class="card">
                 <div>
-                 <div class="numbers">504</div>
-                 <div class="cardName">Comment</div>
+                 <div class="numbers">104</div>
+                 <div class="cardName">Consultation</div>
                 </div> 
                 <div class="iconBx">
                  <ion-icon name="chatbubbles-outline"></ion-icon>
@@ -144,8 +147,8 @@ else{
              </div>
              <div class="card">
                 <div>
-                 <div class="numbers">$6,504</div>
-                 <div class="cardName">Earning</div>
+                 <div class="numbers">10</div>
+                 <div class="cardName">Biodata</div>
                 </div> 
                 <div class="iconBx">
                  <ion-icon name="cash-outline"></ion-icon>
@@ -203,21 +206,22 @@ else{
             <!-- new customer -->
             <div class="recentCustomers">
                 <div class="cardHeader">
-                    <h2>Recent Customers</h2>
+                    <h2>Recent Vitals</h2>
                 </div>
                 <table>
-                    <tr>
-                        <td><div class="imgBx"><img src="images/img1.jpg" alt=""></div></td>
-                        <td><h4>David<br><span>Italy</span></h4></td>
-                    </tr>
-                    <tr>
-                        <td><div class="imgBx"><img src="images/img2.jpg" alt=""></div></td>
-                        <td><h4>Muhammed<br><span>India</span></h4></td>
-                    </tr>
-                    <tr>
-                        <td><div class="imgBx"><img src="images/img3.jpg" alt=""></div></td>
-                        <td><h4>Amelia<br><span>France</span></h4></td>
-                    </tr>
+                    <?php
+                    for ($i=0; $i < count($allVitals); $i++) { 
+                        echo "
+                        <tr>
+                        <td><div class='imgBx'>
+                        <p>weight: {$allVitals[$i]['weight']}</p>
+                        <p>height: {$allVitals[$i]['height']}</p>
+                        </div></td>
+                        <td><h4>{$allVitals[$i]['patient_name']}<br><span>By Nurse {$allVitals[$i]['firstname']}</span></h4></td>
+                        </tr>
+                        ";
+                    }
+                    ?>
                 </table>
             </div>
            </div>

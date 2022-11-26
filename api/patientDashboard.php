@@ -7,11 +7,11 @@ if(isset($_SESSION['user_details'])){
     $user = new Users();
     $staffs= new Nurses();
     $insert = $user->getInfo($user_id);
-    $allstaffs = $staffs->getAllStaffs();
+    $all = $staffs->getAllStaffs();
     $resp=[];
     if ($insert) {
         $resp = $insert['result'][0];
-        print_r($allstaffs);
+        $allstaffs =$all['result'];
     } else {
         $resp['success'] = false;
     }
@@ -67,6 +67,26 @@ else{
                 <h2>Slide1</h2>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum veritatis culpa iure. Aut sed eos, blanditiis recusandae excepturi doloribus quia quod voluptas rem. Doloremque dicta ipsam saepe eaque soluta cupiditate!</p>
             </div>
+        </div>
+    </div>
+    <div class="available">
+        <div class="row"> 
+            <?php
+            for ($i=0; $i < count($allstaffs); $i++) { 
+              echo "
+              <div class='card'>
+              <div class='imgBx'>
+                 <img src='images/{$allstaffs[$i]['profilePic']}' alt=''>
+              </div>
+              <div class='content'>
+                 <div class='details'>
+                   <h2>{$allstaffs[$i]['firstname']} {$allstaffs[$i]['lastname']}<br><span>{$allstaffs[$i]['dept_name']}</span></h2>  
+                   
+                 </div>
+              </div>
+             </div>";
+            }
+            ?>
         </div>
     </div>
    </div> 

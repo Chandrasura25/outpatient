@@ -6,11 +6,16 @@
     protected $username ='root';
     protected $dbName ='hospital';
     protected $password ='';
+    protected $IFlocalhost ='sql310.epizy.com';
+    protected $IFusername ='epiz_33076293';
+    protected $IFdbName ='epiz_33076293_hospital';
+    protected $IFpassword ='gfz2ON1Om0';
     public $connectdb = "";
     public $res =[];
     public function __construct()
     {
-        $this->connectdb = new mysqli($this->localhost, $this->username,$this->password, $this->dbName);
+        // $this->connectdb = new mysqli($this->localhost, $this->username,$this->password, $this->dbName);
+        $this->connectdb = new mysqli($this->IFlocalhost, $this->IFusername,$this->IFpassword, $this->IFdbName);
         if($this->connectdb->connect_error){
           die ("Unable to connect".$this->connectdb->connect_error);
         }
