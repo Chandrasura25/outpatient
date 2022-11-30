@@ -15,9 +15,9 @@
         $binder = null;
        return $this->read($query,$binder);
     }
-    public function addPatientRec($card_id, $patient_name, $address, $age, $phone_no, $marital_status, $nationality, $date,$nurse_id,$recorder_id){
-        $query = "INSERT INTO patients (card_id,patient_name,address, age, phone_no, marital_status, nationality, date,nurse_id,recorder_id) VALUES (?,?,?,?,?,?,?,?,?,?)";
-        $binder = array('ssssssssss',$card_id,$patient_name,$address, $age, $phone_no, $marital_status, $nationality, $date,$nurse_id,$recorder_id);
+    public function addPatientRec($card_id, $patient_name, $address, $age, $phone_no, $marital_status, $nationality, $date,$nurse_id,$recorder_id,$blood_group){
+        $query = "INSERT INTO patients (card_id,patient_name,address, age, phone_no, marital_status, nationality, date,nurse_id,recorder_id,blood_group) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        $binder = array('sssssssssss',$card_id,$patient_name,$address, $age, $phone_no, $marital_status, $nationality, $date,$nurse_id,$recorder_id,$blood_group);
        return $this->create($query,$binder);
     }
     public function getInfo($user_id){

@@ -256,6 +256,10 @@ else{
         <label for="name" class="form_label">Marital Status</label>
         </div>
         <div class="form_group">
+        <input type="input" name="blood_group" placeholder="Name" class="form_field">
+        <label for="name" class="form_label">Blood Group/Genotype</label>
+        </div>
+        <div class="form_group">
         <input type="input" name="nationality" placeholder="Name" class="form_field">
         <label for="name" class="form_label">Nationality</label>
         </div>

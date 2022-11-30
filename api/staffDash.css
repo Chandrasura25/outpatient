@@ -387,8 +387,8 @@ body{
 .form_group{
     position: relative;
     padding: 15px 0 0;
-    margin-top: 5px;
-    width: 80%;
+    margin-top: 1px;
+    width: 90%;
 }
 .form_field{
     font-family: 'poppins';
@@ -397,7 +397,6 @@ body{
     border-bottom: 2px solid #9b9b9b;
     outline: 0;
     font-size: 1.3em;
-    /* color: #fff; */
     padding: 7px 0;
     background: transparent;
     transition: border-color 0.2s;
@@ -416,7 +415,7 @@ body{
 .form_field:placeholder-shown ~ .form_label{
     font-size: 1.3em;
     cursor:text;
-    top: 20px;
+    top: 15px;
 }
 .form_field:focus{
     padding-bottom: 6px;
