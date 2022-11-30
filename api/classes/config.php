@@ -12,8 +12,8 @@
     public $res =[];
     public function __construct()
     {
-        $this->connectdb = new mysqli($this->localhost, $this->username,$this->password, $this->dbName);
-        // $this->connectdb = new mysqli($this->IFlocalhost, $this->IFusername,$this->IFpassword, $this->IFdbName);
+        // $this->connectdb = new mysqli($this->localhost, $this->username,$this->password, $this->dbName);
+        $this->connectdb = new mysqli($this->IFlocalhost, $this->IFusername,$this->IFpassword, $this->IFdbName);
         if($this->connectdb->connect_error){
           die ("Unable to connect".$this->connectdb->connect_error);
         }
