@@ -65,7 +65,7 @@ else{
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="vis.php">
                         <span class="icon"><ion-icon name="chatbubble-outline"></ion-icon></span>
                         <span class="title">Record for Vital Sign</span>
                     </a>
@@ -86,6 +86,12 @@ else{
                     <a href="#">
                         <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
                         <span class="title">View Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="rec.php">
+                        <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+                        <span class="title">Test Result</span>
                     </a>
                 </li>
                 <li>
